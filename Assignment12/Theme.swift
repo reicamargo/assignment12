@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Theme {
+    var name: String
+    var emojis: [String]
+    var numberOfPairs: Int
+    var color: String
+}
