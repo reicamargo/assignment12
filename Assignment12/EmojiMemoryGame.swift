@@ -20,9 +20,10 @@ class EmojiMemoryGame: ObservableObject {
     ]
     
     init() {
-            theme = EmojiMemoryGame.themes.randomElement()!
-            theme.emojis.shuffle()
-            model = EmojiMemoryGame.createMemoryGame(theme: theme)
+        theme = EmojiMemoryGame.themes.randomElement()!
+        //theme.emojis.shuffle()
+        model = EmojiMemoryGame.createMemoryGame(theme: theme)
+        model.shuffle()
     }
     
     private (set) var theme: Theme
@@ -41,10 +42,6 @@ class EmojiMemoryGame: ObservableObject {
         }
     }
     
-    func shuffle() {
-        model.shuffle()
-    }
-    
     var cards: [MemoryGame<String>.Card] {
         return model.cards
     }
@@ -55,8 +52,8 @@ class EmojiMemoryGame: ObservableObject {
     
     func newGame() {
         theme = EmojiMemoryGame.themes.randomElement()!
-        theme.emojis.shuffle()
         model = EmojiMemoryGame.createMemoryGame(theme: theme)
+        model.shuffle()
     }
     
     var score: Int {
