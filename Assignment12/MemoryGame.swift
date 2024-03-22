@@ -10,7 +10,6 @@ import Foundation
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: [Card]
     private (set) var score = 0
-    private var cardsPreviouslySeenIds: [String]
     
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get {
@@ -24,7 +23,6 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     }
     
     init(numberOfPairOfCards: Int, cardContentFactory: (Int) -> CardContent) {
-        cardsPreviouslySeenIds = []
         cards = []
         for pairIndex in 0..<max(2,numberOfPairOfCards) {
             let content = cardContentFactory(pairIndex)
@@ -40,11 +38,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                         cards[chosenIndex].isMatched = true
                         cards[potentialMatchIndex].isMatched = true
-                        setScore(points: 2)
+                        score += 2
                     } else {
                         //not a match
-                        isCardAlreadySeen(chosenCardId: cards[chosenIndex].id)
-                        isCardAlreadySeen(chosenCardId: cards[potentialMatchIndex].id)
+                        if cards[chosenIndex].hasBeenSeen {
+                            score -= 1
+                        }
+                        
+                        if cards[potentialMatchIndex].hasBeenSeen {
+                            score -= 1
+                        }
                     }
                 } else {
                     indexOfTheOneAndOnlyFaceUpCard = chosenIndex
@@ -58,27 +61,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         cards.shuffle()
     }
     
-    mutating func isCardAlreadySeen(chosenCardId: String) {
-        if !cardsPreviouslySeenIds.contains(chosenCardId) {
-            cardsPreviouslySeenIds.append(chosenCardId)
-        } else {
-            setScore(points: -1)
-        }
-    }
-    
-    mutating func addCardAlreadySeen(chosenCardId: String) {
-        if !cardsPreviouslySeenIds.contains(chosenCardId) {
-            cardsPreviouslySeenIds.append(chosenCardId)
-        }
-    }
-    
-    mutating func setScore(points: Int) {
-        score += points
-    }
-    
     struct Card: Identifiable, Equatable {
-        var isFaceUp = false
+        var isFaceUp = false {
+            didSet {
+                if oldValue && !isFaceUp {
+                    hasBeenSeen = true
+                }
+            }
+        }
         var isMatched = false
+        var hasBeenSeen = false
         let content: CardContent
         var id: String
     }
