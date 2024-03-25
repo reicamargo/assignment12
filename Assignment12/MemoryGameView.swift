@@ -38,7 +38,9 @@ struct MemoryGameView: View {
                         .aspectRatio(2/3, contentMode: .fit)
                         .padding(4)
                         .onTapGesture {
-                            viewModel.choose(card)
+                            withAnimation(.easeInOut(duration: 2)) {
+                                viewModel.choose(card)
+                            }
                         }
                 }
             }
@@ -53,7 +55,9 @@ struct MemoryGameView: View {
     
     var NewGameButton: some View {
         return Button(action: {
-            viewModel.newGame()
+            withAnimation {
+                viewModel.newGame()
+            }
         }, label: {
             VStack {
             Image(systemName: "rectangle.stack.badge.plus.fill")
@@ -66,6 +70,7 @@ struct MemoryGameView: View {
 
 struct CardView : View {
     let card: MemoryGame<String>.Card
+    
     var body: some View {
         let rectangle = RoundedRectangle(cornerRadius: 12.0)
         ZStack {
@@ -76,10 +81,19 @@ struct CardView : View {
                     .font(.system(size: 200))
                     .minimumScaleFactor(0.01)
                     .aspectRatio(1, contentMode: .fit)
+                    .rotationEffect(.degrees(card.isMatched ? 360 : 0))
+                    .animation(.spin(duration: 1), value: card.isMatched)
                 rectangle.fill().opacity(card.isFaceUp ? 0 : 1)
             }
         }
+        .rotation3DEffect(.degrees(card.isFaceUp ? 0 : 180), axis: (0,1,0))
         .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+    }
+}
+
+extension Animation {
+    static func spin(duration: TimeInterval) -> Animation {
+        .easeInOut(duration: duration).repeatForever(autoreverses: false)
     }
 }
 
