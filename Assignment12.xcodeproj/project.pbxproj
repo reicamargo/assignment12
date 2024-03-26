@@ -15,6 +15,7 @@
 		3D633CCB2BA0EE4800C9A065 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D633CCA2BA0EE4800C9A065 /* EmojiMemoryGame.swift */; };
 		3D633CCD2BA0EEB900C9A065 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D633CCC2BA0EEB900C9A065 /* Theme.swift */; };
 		3DA34F612BB2133E00D13F00 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA34F602BB2133E00D13F00 /* CardView.swift */; };
+		3DA34F632BB222EF00D13F00 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA34F622BB222EF00D13F00 /* FlyingNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		3D633CCA2BA0EE4800C9A065 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		3D633CCC2BA0EEB900C9A065 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		3DA34F602BB2133E00D13F00 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		3DA34F622BB222EF00D13F00 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			children = (
 				3D633CBA2BA0E7AB00C9A065 /* Assignment12App.swift */,
 				3D633CBC2BA0E7AB00C9A065 /* MemoryGameView.swift */,
+				3DA34F622BB222EF00D13F00 /* FlyingNumber.swift */,
 				3D633CC82BA0EE3200C9A065 /* MemoryGame.swift */,
 				3DA34F602BB2133E00D13F00 /* CardView.swift */,
 				3D633CCA2BA0EE4800C9A065 /* EmojiMemoryGame.swift */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DA34F612BB2133E00D13F00 /* CardView.swift in Sources */,
+				3DA34F632BB222EF00D13F00 /* FlyingNumber.swift in Sources */,
 				3D633CC92BA0EE3200C9A065 /* MemoryGame.swift in Sources */,
 				3D633CBD2BA0E7AB00C9A065 /* MemoryGameView.swift in Sources */,
 				3D633CCD2BA0EEB900C9A065 /* Theme.swift in Sources */,
@@ -292,7 +296,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,7 +325,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
